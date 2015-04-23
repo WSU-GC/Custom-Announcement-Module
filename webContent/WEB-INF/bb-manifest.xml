@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<manifest>
+	<!-- core extension information -->
+	<plugin>
+		<name value="WSU Custom Announcement Module" />
+		<handle value="wsu-custom-announcement-module" />
+		<description value="WSU Custom Announcement Module" />
+		<version value="0.0.10" />
+		<requires>
+			<bbversion value="9.0.0" />
+		</requires>
+		<vendor>
+			<id value="wsu" />
+			<name value="WSU" />
+			<url value="http://wsu.edu" />
+			<description value="Custom Announcement Module" />
+		</vendor>
+
+		<!-- These two JSPs are displayed when the "remove" and "properties" buttons -->
+		<!-- are pressed on the Building Blocks administration page. -->
+		<http-actions> 
+			<config value="admin/configure.jsp"/> <!-- <remove value="admin/remove.jsp"/> --> 
+		</http-actions>
+		<application-defs>
+		</application-defs>
+
+		<!-- Portal Module Definitions -->
+		<module-defs>
+			<module-type ext-ref="wsu-cam" title="Custom Announcements"
+				uicreatable="true">
+				<jsp-dir>module</jsp-dir>
+				<jsp>
+					<view>view.jsp</view>
+				</jsp>
+			</module-type>
+			
+			<module type="wsu-cam" isadmin="false" isavailabletocourse="true" useraddable="true" isdeletable="false" title="Custom Announcements">
+		        <description>WSU Custom Announcement Module</description>
+		        <ExtraInfo>
+							<property key="" type=""></property>
+				</ExtraInfo>
+				<module-groups>
+		 			<module-group id="Everyone" /> 
+				</module-groups>
+	      	</module>
+		</module-defs>
+		<!-- Custom Content Types -->
+		<content-handlers>
+		</content-handlers>
+
+		<!-- code permissions required for proper operation -->
+		<permissions>
+			<permission type="attribute" name="user.authinfo" actions="get" />
+			<permission type="attribute" name="user.personalinfo"
+				actions="get,set" />
+		</permissions>
+
+	</plugin>
+
+</manifest>
